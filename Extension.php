@@ -41,6 +41,8 @@ class Extension extends BaseExtension
                 $widgetObj->setCacheDuration($widget['cacheduration']);
             }
 
+            // dump($widgetObj);
+
             $this->addWidget($widgetObj);
         }
     }
@@ -72,7 +74,11 @@ class Extension extends BaseExtension
         $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/widgets');
 
         // Data to pass into the widget
-        $data = ['record' => $record, 'widget' => $widget ];
+        $data = [
+            'record' => $record,
+            'widget' => $widget,
+            'content' => $widget['content'] ?: []
+        ];
 
         // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);

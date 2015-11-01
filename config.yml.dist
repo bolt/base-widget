@@ -30,3 +30,23 @@ widgets:
         defer: true
         cacheduration: 3600
         enabled: true
+
+    # Adding a widget to the Dashboard is also possible.
+    block4:
+        type: backend
+        location: dashboard_aside_top
+        template: backend_panel.twig
+        content:
+            icon: camera-retro # any font-awesome icon will work: http://fontawesome.io/icons/
+            title: An example of a Dashboard widget
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et certamen honestum et disputatio splendida!"
+            buttons:
+                About:
+                    type: primary
+                    icon: heart
+                    path: about # Note, Use a route that's registered in Bolt.
+                Documentation:
+                    type: default
+                    icon: leanpub
+                    link: 'https://docs.bolt.cm' # This can be a fixed (external) link
+                    target: '_blank'
