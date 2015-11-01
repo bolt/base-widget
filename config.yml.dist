@@ -32,7 +32,7 @@ widgets:
         enabled: true
 
     # Adding a widget to the Dashboard is also possible.
-    block4:
+    block5:
         type: backend
         location: dashboard_aside_top
         template: backend_panel.twig

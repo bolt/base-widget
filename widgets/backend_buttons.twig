@@ -1,0 +1,26 @@
+{% macro button(label, values) %}
+    {% if values.path is defined %}
+        {% set link = path(values.path) %}
+    {% else %}
+        {% set link = values.link %}
+    {% endif %}
+    <a href="{{ link }}" class="btn btn-{{values.type|default('default')}}"
+        {% if values.target is defined %}target='{{ values.target }}'{% endif %}>
+        {% if values.icon is defined %}
+            <i class="fa fa-{{ values.icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </a>
+    &nbsp;
+{% endmacro %}
+
+{% from _self import button %}
+
+
+{% if content.buttons is iterable %}
+<p>
+    {% for label, values in content.buttons %}
+        {{ button(label, values) }}
+    {% endfor %}
+</p>
+{% endif %}
