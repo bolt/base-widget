@@ -13,7 +13,7 @@ class Extension extends BaseExtension
         foreach((array) $this->config['widgets'] as $name => $widget) {
 
             // Skip diabled extensions.
-            if ($this->config['enabled'] === false) {
+            if ($widget['enabled'] === false) {
                 continue;
             }
 
@@ -31,6 +31,14 @@ class Extension extends BaseExtension
 
             if (!empty($widget['location'])) {
                 $widgetObj->setClass($widget['class']);
+            }
+
+            if (!empty($widget['defer'])) {
+                $widgetObj->setDefer($widget['defer']);
+            }
+
+            if (!empty($widget['cacheduration'])) {
+                $widgetObj->setCacheDuration($widget['cacheduration']);
             }
 
             $this->addWidget($widgetObj);
