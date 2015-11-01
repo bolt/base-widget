@@ -1,15 +1,31 @@
 # Sample configuration for Base Widget extension
 
 widgets:
-    about:
-        record: page/45
+
+    # A widget that renders a template, and uses the given 'content' to fill it.
+    block1:
         location: aside_top
         template: contentblock.twig
         content:
             title: This is a sample widget
-            text: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
-        enabled: true
-    static:
+            excerpt: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
+        enabled: false
+
+    # A widget that retrieves a record, and shows a block using that record
+    block2:
+        record: page/45
+        location: aside_top
+        template: contentblock.twig
+        enabled: false
+
+    # A very simple widget, with some static text
+    block3:
         location: aside_bottom
-        class: foobar
         static: "<p>Basic, <em>fixed</em> text for a widget</p>"
+
+    # Using caching, and deferred
+    block4:
+        location: aside_bottom
+        static: "<p>This widget is deferred (rendered asynchronously) and also cached for an hour.</p>"
+        defer: true
+        cacheduration: 3600

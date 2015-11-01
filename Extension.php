@@ -53,7 +53,9 @@ class Extension extends BaseExtension
         if (!empty($widget['record'])) {
             list($ct, $slug) = explode('/', $widget['record']);
             $key = is_numeric($slug) ? 'id' : 'slug';
-            $record = $this->app['storage']->getContent($ct, [ $key => $slug, 'returnsingle' => true]);
+            $record = $this->app['storage']->getContent($ct, [$key => $slug, 'returnsingle' => true]);
+        } elseif (!empty($widget['content'])) {
+            $record = $widget['content'];
         } else {
             $record = [];
         }
