@@ -16,26 +16,12 @@
 
 {% from _self import button %}
 
-<div class="panel panel-default panel-news">
-    <div class="panel-heading">
-        {% if content.icon is not empty %}
-            <i class="fa fa-fw fa-{{ content.icon }}"></i>
-        {% endif %}
-        {{ content.title|default('Widget without a title') }}
-    </div>
 
-    <div class="panel-body">
-        {% if content.description is not empty %}
-            <p>{{ content.description }}</p>
-        {% endif %}
+{% if content.buttons is iterable %}
+<p>
+    {% for label, values in content.buttons %}
+        {{ button(label, values) }}
+    {% endfor %}
+</p>
+{% endif %}
 
-        {% if content.buttons is iterable %}
-        <p>
-            {% for label, values in content.buttons %}
-                {{ button(label, values) }}
-            {% endfor %}
-        </p>
-        {% endif %}
-
-    </div>
-</div>
