@@ -10,14 +10,27 @@ class Extension extends BaseExtension
 
     public function initialize() {
 
-        $widget = new \Bolt\Asset\Widget\Widget();
-        $widget
-            ->setType('frontend')
-            ->setLocation('aside_top')
-            ->setCallback([$this, 'widget'])
-            ->setCallbackArguments(['foo' => 'bar'])
-        ;
-        $this->addWidget($widget);
+        dump($this->config);
+
+        foreach($this->config['widgets'] as $name => $widget) {
+
+            if(empty($widget['type']) || $widget['type'] !== 'backend') {
+                $widget['type'] = 'frontend';
+            }
+
+            $widgetObj = new \Bolt\Asset\Widget\Widget();
+            $widgetObj
+                ->setType($widget['type'])
+                ->setLocation($widget['location'])
+                ->setCallback([$this, 'widget'])
+                ->setCallbackArguments(['widget' => $widget])
+            ;
+            $this->addWidget($widgetObj);
+
+
+        }
+
+
 
     }
 
@@ -26,10 +39,10 @@ class Extension extends BaseExtension
         return "basewidget";
     }
 
-    public function widget($foo, $bar)
+    public function widget($widget)
     {
 
-        dump($foo);
+        dump($widget);
 
         return "hoi";
     }
