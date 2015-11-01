@@ -8,11 +8,9 @@ use Bolt\BaseExtension;
 class Extension extends BaseExtension
 {
 
-    public function initialize() {
-
-        dump($this->config);
-
-        foreach($this->config['widgets'] as $name => $widget) {
+    public function initialize()
+    {
+        foreach((array) $this->config['widgets'] as $name => $widget) {
 
             // Skip diabled extensions.
             if ($this->config['enabled'] === false) {
@@ -36,11 +34,7 @@ class Extension extends BaseExtension
             }
 
             $this->addWidget($widgetObj);
-
         }
-
-
-
     }
 
     public function getName()
@@ -50,9 +44,6 @@ class Extension extends BaseExtension
 
     public function widget($widget)
     {
-
-        dump($widget);
-
         // If we need a 'static' widget, we can just retun the output here and we're done
         if (!empty($widget['static'])) {
             return $widget['static'];
@@ -75,7 +66,6 @@ class Extension extends BaseExtension
 
         // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);
-
     }
 
 
