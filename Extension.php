@@ -30,8 +30,12 @@ class Extension extends BaseExtension
                 ->setCallback([$this, 'widget'])
                 ->setCallbackArguments(['widget' => $widget])
             ;
-            $this->addWidget($widgetObj);
 
+            if (!empty($widget['location'])) {
+                $widgetObj->setClass($widget['class']);
+            }
+
+            $this->addWidget($widgetObj);
 
         }
 
@@ -49,9 +53,29 @@ class Extension extends BaseExtension
 
         dump($widget);
 
+        // If we need a 'static' widget, we can just retun the output here and we're done
+        if (!empty($widget['static'])) {
+            return $widget['static'];
+        }
 
+        // fetch the configured record, if any
+        if (!empty($widget['record'])) {
+            list($ct, $slug) = explode('/', $widget['record']);
+            $key = is_numeric($slug) ? 'id' : 'slug';
+            $record = $this->app['storage']->getContent($ct, [ $key => $slug, 'returnsingle' => true]);
+        } else {
+            $record = [];
+        }
 
-        return "hoi";
+        // Add the `widgets/` path, so it can be overridden in themes
+        $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/widgets');
+
+        // Data to pass into the widget
+        $data = ['record' => $record, 'widget' => $widget ];
+
+        // Render the template, and return the results
+        return $this->app['render']->render($widget['template'], $data);
+
     }
 
 
