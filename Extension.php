@@ -14,6 +14,11 @@ class Extension extends BaseExtension
 
         foreach($this->config['widgets'] as $name => $widget) {
 
+            // Skip diabled extensions.
+            if ($this->config['enabled'] === false) {
+                continue;
+            }
+
             if(empty($widget['type']) || $widget['type'] !== 'backend') {
                 $widget['type'] = 'frontend';
             }
@@ -43,6 +48,8 @@ class Extension extends BaseExtension
     {
 
         dump($widget);
+
+
 
         return "hoi";
     }
