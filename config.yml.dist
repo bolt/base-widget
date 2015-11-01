@@ -1,0 +1,15 @@
+# Sample configuration for Base Widget extension
+
+widgets:
+    about:
+        record: page/45
+        location: aside_top
+        template: contentblock.twig
+        content:
+            title: This is a sample widget
+            text: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
+        enabled: true
+    static:
+        location: aside_bottom
+        class: foobar
+        static: "<p>Basic, <em>fixed</em> text for a widget</p>"
