@@ -26,6 +26,7 @@ widgets:
     # Using caching, and deferred
     block4:
         location: aside_bottom
-        static: "<p>This widget is deferred (rendered asynchronously) and also cached for an hour.</p>"
+        static: "<h4>Deferred & Cached</h4><p>This widget is deferred (rendered asynchronously) and also cached for an hour.</p>"
         defer: true
         cacheduration: 3600
+        enabled: true
