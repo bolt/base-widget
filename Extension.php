@@ -74,7 +74,7 @@ class Extension extends BaseExtension
         }
 
         // Add the `widgets/` path, so it can be overridden in themes
-        $this->app['twig.loader.filesystem']->addPath(__DIR__ . '/widgets');
+        $this->app['twig.loader.filesystem']->addPath(__DIR__);
 
         // Data to pass into the widget
         $data = [
@@ -82,8 +82,6 @@ class Extension extends BaseExtension
             'widget' => $widget,
             'content' => $widget['content']
         ];
-
-        dump($data);
 
         // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);

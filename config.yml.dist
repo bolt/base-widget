@@ -5,7 +5,7 @@ widgets:
     # A widget that renders a template, and uses the given 'content' to fill it.
     block1:
         location: aside_top
-        template: contentblock.twig
+        template: widgets/contentblock.twig
         content:
             title: This is a sample widget
             excerpt: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
@@ -14,7 +14,7 @@ widgets:
     block2:
         record: page/1
         location: aside_top
-        template: contentblock.twig
+        template: widgets/contentblock.twig
         enabled: true
 
     # A very simple widget, with some static text
@@ -33,7 +33,7 @@ widgets:
     block5:
         type: backend
         location: dashboard_aside_top
-        template: backend_panel.twig
+        template: widgets/backend_panel.twig
         content:
             icon: camera-retro # any font-awesome icon will work: http://fontawesome.io/icons/
             title: An example of a Dashboard widget
@@ -54,7 +54,7 @@ widgets:
     block6:
         type: backend
         location: dashboard_below_header
-        template: backend_buttons.twig
+        template: widgets/backend_buttons.twig
         content:
             buttons:
                 About:
