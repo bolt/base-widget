@@ -1,0 +1,27 @@
+{
+    "name": "bolt/basewidget",
+    "description": "A basic widget extension, to insert static blocks, rendered templates, or specific content.",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": ">=2.3.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bob den Otter",
+            "email": "bob@twokings.nl"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\Bolt\\BaseWidget\\": ""
+        }
+    },
+
+    "extra": {
+        "bolt-assets": "assets"
+    }
+}
