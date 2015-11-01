@@ -50,3 +50,21 @@ widgets:
                     icon: leanpub
                     link: 'https://docs.bolt.cm' # This can be a fixed (external) link
                     target: '_blank'
+
+
+    # Or one or more simple buttons to the top of the dashboard.
+    block6:
+        type: backend
+        location: dashboard_below_header
+        template: backend_buttons.twig
+        content:
+            buttons:
+                About:
+                    type: secondary
+                    icon: heart
+                    path: about # Note, Use a route that's registered in Bolt.
+                Documentation:
+                    type: tertiary
+                    icon: leanpub
+                    link: 'https://docs.bolt.cm' # This can be a fixed (external) link
+                    target: '_blank'
