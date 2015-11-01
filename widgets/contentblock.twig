@@ -1,8 +1,14 @@
-<h4>{{ record.title }}</h4>
+<h4>{{ record.title|default('No title…') }}</h4>
 
 <p>
-    {{ record|excerpt(160) }}
-    {% if record.link %}
+    {% if record is not empty %}
+        {{ record|excerpt(160) }}
+    {% else %}
+        <b>No content was found.</b> Make sure the record you're using exists,
+        <em>and</em> it's status is set to <tt>'published'</tt>.
+    {% endif %}
+
+    {% if record.link is defined %}
     <small>
         (<a href='{{ record.link() }}'>{{ __('Read more') }}</a>)
     </small>

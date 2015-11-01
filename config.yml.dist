@@ -9,14 +9,13 @@ widgets:
         content:
             title: This is a sample widget
             excerpt: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
-        enabled: false
 
     # A widget that retrieves a record, and shows a block using that record
     block2:
-        record: page/45
+        record: page/1
         location: aside_top
         template: contentblock.twig
-        enabled: false
+        enabled: true
 
     # A very simple widget, with some static text
     block3:
@@ -29,7 +28,6 @@ widgets:
         static: "<h4>Deferred & Cached</h4><p>This widget is deferred (rendered asynchronously) and also cached for an hour.</p>"
         defer: true
         cacheduration: 3600
-        enabled: true
 
     # Adding a widget to the Dashboard is also possible.
     block5:
@@ -68,3 +66,9 @@ widgets:
                     icon: leanpub
                     link: 'https://docs.bolt.cm' # This can be a fixed (external) link
                     target: '_blank'
+
+    # To (temporarily) disable a widget, set `enabled: false`.
+    block7:
+        location: aside_bottom
+        static: "<p>Basic, <em>fixed</em> text for a widget</p>"
+        enabled: true

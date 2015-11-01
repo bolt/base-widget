@@ -59,15 +59,18 @@ class Extension extends BaseExtension
             return $widget['static'];
         }
 
+        // Make sure 'content' is defined
+        if (empty($widget['content'])) {
+            $widget['content'] = [];
+        }
+
         // fetch the configured record, if any
         if (!empty($widget['record'])) {
             list($ct, $slug) = explode('/', $widget['record']);
             $key = is_numeric($slug) ? 'id' : 'slug';
             $record = $this->app['storage']->getContent($ct, [$key => $slug, 'returnsingle' => true]);
-        } elseif (!empty($widget['content'])) {
-            $record = $widget['content'];
         } else {
-            $record = [];
+            $record = $widget['content'];
         }
 
         // Add the `widgets/` path, so it can be overridden in themes
@@ -77,8 +80,10 @@ class Extension extends BaseExtension
         $data = [
             'record' => $record,
             'widget' => $widget,
-            'content' => $widget['content'] ?: []
+            'content' => $widget['content']
         ];
+
+        dump($data);
 
         // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);
