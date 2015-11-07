@@ -13,7 +13,7 @@ class Extension extends BaseExtension
         foreach((array) $this->config['widgets'] as $name => $widget) {
 
             // Skip diabled extensions.
-            if ($widget['enabled'] === false) {
+            if (isset($widget['enabled']) && $widget['enabled'] === false) {
                 continue;
             }
 
@@ -29,7 +29,7 @@ class Extension extends BaseExtension
                 ->setCallbackArguments(['widget' => $widget])
             ;
 
-            if (!empty($widget['location'])) {
+            if (!empty($widget['class'])) {
                 $widgetObj->setClass($widget['class']);
             }
 
