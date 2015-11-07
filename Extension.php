@@ -29,7 +29,7 @@ class Extension extends BaseExtension
                 ->setCallbackArguments(['widget' => $widget])
             ;
 
-            if (!empty($widget['location'])) {
+            if (!empty($widget['class'])) {
                 $widgetObj->setClass($widget['class']);
             }
 
