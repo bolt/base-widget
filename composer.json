@@ -19,9 +19,5 @@
         "psr-4": {
             "Bolt\\Extension\\Bolt\\BaseWidget\\": ""
         }
-    },
-
-    "extra": {
-        "bolt-assets": "assets"
     }
 }
