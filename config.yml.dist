@@ -72,3 +72,12 @@ widgets:
         location: aside_bottom
         static: "<p>Basic, <em>fixed</em> text for a widget</p>"
         enabled: true
+
+    # Add the latest records from one or more contenttypes as a sidebar widget.
+    latest:
+        location: aside_top
+        template: widgets/latestrecords.twig
+        content:
+            contenttypes: [ 'pages', 'entries' ]
+            amount: 3
+
