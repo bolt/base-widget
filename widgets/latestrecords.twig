@@ -1,0 +1,32 @@
+{% if content.contenttypes|default('*') == '*' %}
+    {% set contenttypes = app.config.get('contenttypes') %}
+{% elseif content.contenttypes is not iterable %}
+    {% set contenttypes = [ content.contenttypes ] %}
+{% else %}
+    {% set contenttypes = content.contenttypes %}
+{% endif %}
+
+{% for contenttype in contenttypes if not ct.viewless|default(false) %}
+
+    {% set ct = app.config.get('contenttypes/' ~ contenttype) %}
+
+    {% setcontent records = ct.slug ~ "/latest/" ~ content.amount|default(5) %}
+
+    <h5>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct.slug}) }}</h5>
+
+    <ul>
+        {% for record in records %}
+            <li><a href="{{ record.link }}">{{ record.title }}</a></li>
+        {% else %}
+            <li>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{{ path('contentlisting', {'contenttypeslug': ct.slug}) }}">
+            {{ __('contenttypes.generic.overview',{'%contenttypes%': ct.slug}) }} &raquo;
+        </a>
+    </p>
+
+
+{% endfor %}
