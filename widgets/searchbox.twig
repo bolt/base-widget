@@ -1,0 +1,22 @@
+<style>
+#widgetsearch {
+    padding: 1em 0;
+}
+
+#widgetsearch input,
+#widgetsearch button {
+    width: 60%;
+    font-size: 0.9em;
+    height: 2.2em;
+    display: inline-block;
+    line-height: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+</style>
+
+<form method="get" action="{{ paths.root }}search" id="widgetsearch" enctype="text/plain" style="">
+    <label for="search" class="visuallyhidden">{{ __("Search this website:") }}</label>
+    <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" name="search">
+    <button type="submit" style="width: 38%;">{{ __("Search") }}</button>
+</form>
