@@ -1,0 +1,6 @@
+{% set menuname = content.menu|default('main') %}
+{% set filename = content.filename|default('widgets/_sub_menu.twig') %}
+
+<h5>{{ __("Menu") }}</h5>
+
+{{ menu(menuname, filename) }}

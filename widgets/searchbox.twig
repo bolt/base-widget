@@ -16,7 +16,7 @@
 </style>
 
 <form method="get" action="{{ paths.root }}search" id="widgetsearch" enctype="text/plain" style="">
-    <label for="search" class="visuallyhidden">{{ __("Search this website:") }}</label>
-    <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" name="search">
+    <label for="widget-search-input"><h5>{{ __("Search this website") }}</h5></label>
+    <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" name="search" id="widget-search-input">
     <button type="submit" style="width: 38%;">{{ __("Search") }}</button>
 </form>
