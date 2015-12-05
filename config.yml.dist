@@ -31,7 +31,7 @@ widgets:
 
     # Adding a widget to the Dashboard is also possible.
     block5:
-        type: backend
+        zone: backend
         location: dashboard_aside_top
         template: widgets/backend_panel.twig
         content:
@@ -52,7 +52,7 @@ widgets:
 
     # Or one or more simple buttons to the top of the dashboard.
     block6:
-        type: backend
+        zone: backend
         location: dashboard_below_header
         template: widgets/backend_buttons.twig
         content:

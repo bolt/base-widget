@@ -17,13 +17,13 @@ class Extension extends BaseExtension
                 continue;
             }
 
-            if(empty($widget['type']) || $widget['type'] !== 'backend') {
-                $widget['type'] = 'frontend';
+            if(empty($widget['zone']) || $widget['zone'] !== 'backend') {
+                $widget['zone'] = 'frontend';
             }
 
             $widgetObj = new \Bolt\Asset\Widget\Widget();
             $widgetObj
-                ->setType($widget['type'])
+                ->setZone($widget['zone'])
                 ->setLocation($widget['location'])
                 ->setCallback([$this, 'widget'])
                 ->setCallbackArguments(['widget' => $widget])
