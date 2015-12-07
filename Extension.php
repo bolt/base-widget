@@ -64,7 +64,7 @@ class Extension extends BaseExtension
             $widget['content'] = [];
         }
 
-        // fetch the configured record, if any
+        // Fetch the configured record, if any
         if (!empty($widget['record'])) {
             list($ct, $slug) = explode('/', $widget['record']);
             $key = is_numeric($slug) ? 'id' : 'slug';
@@ -73,15 +73,23 @@ class Extension extends BaseExtension
             $record = $widget['content'];
         }
 
-        // Add the `widgets/` path, so it can be overridden in themes
-        $this->app['twig.loader.filesystem']->addPath(__DIR__);
-
         // Data to pass into the widget
         $data = [
             'record' => $record,
             'widget' => $widget,
             'content' => $widget['content']
         ];
+
+        // Add the `widgets/` path, so it can be overridden in themes
+        $this->app['twig.loader.filesystem']->addPath(__DIR__);
+
+        // Make sure 'template' is defined, and the template file exists
+        if (empty($widget['template'])) {
+            return "<strong>Base Widget error:</strong> Custom widgets need to define a template.";
+        } elseif (!$this->app['twig.loader']->exists($widget['template'])) {
+            return "<strong>Base Widget error:</strong> Widget template '<tt>" . $widget['template'] .
+                "</tt>' does not exist, or isn't readable.";
+        }
 
         // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);
