@@ -91,17 +91,7 @@ class Extension extends BaseExtension
                 "</tt>' does not exist, or isn't readable.";
         }
 
-        try {
-            // Render the template, and return the results
-            $result = $this->app['render']->render($widget['template'], $data);
-        } catch (\Exception $e) {
-            // We catch errors here, because if we don't we'll get an error that's very hard to
-            // trace, until we sort out Widget\Queue::getHTML() and Widget::toString()
-            // @see: https://github.com/bolt/bolt/issues/4564
-            $result = "<strong>Base Widget error:</strong> There was an error rendering this widget.";
-        }
-
-        return $result;
+        return $this->app['render']->render($widget['template'], $data);;
     }
 
 
