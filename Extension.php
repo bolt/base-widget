@@ -92,7 +92,7 @@ class Extension extends BaseExtension
         }
 
         // Render the template, and return the results
-        return $this->app['render']->render($widget['template'], $data);;
+        return $this->app['render']->render($widget['template'], $data);
     }
 
 
