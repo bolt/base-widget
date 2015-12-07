@@ -91,6 +91,7 @@ class Extension extends BaseExtension
                 "</tt>' does not exist, or isn't readable.";
         }
 
+        // Render the template, and return the results
         return $this->app['render']->render($widget['template'], $data);;
     }
 
