@@ -1,31 +1,24 @@
 <style>
 .search-widget-column {
-    float: left;
-    border: 1px solid #F00;
-    display: block;
+    display: inline-block;
+    margin-bottom: 1.5rem;
 }
-
-.search-widget-button {
+.search-widget-form button ,
+.search-widget-form input {
     padding: 4px;
     font-size: 1rem;
     width: 100%;
-}
-
-.search-widget-input {
-    padding: 4px;
-    font-size: 1rem;
-    width: 100%;
-
+    margin: 0;
+    line-height: 1.4rem;
+    height: 2rem;
 }
 </style>
-
 <h3 class='widget-title'>{{ __('Search') }}</h3>
-<form method="get" action="{{ paths.root }}search" id="searchform" enctype="text/plain">
+<form method="get" action="{{ paths.root }}search" class="search-widget-form" enctype="text/plain">
     <div class="search-widget-column" style='width: 66%;'>
         <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" name="search" class="search-widget-input">
     </div>
     <div class="search-widget-column" style='width: 33%;'>
         <button type="submit" class="search-widget-button">{{ __("Search") }}</button>
     </div>
-</div>
 </form>
