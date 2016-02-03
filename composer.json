@@ -3,7 +3,7 @@
     "description": "A basic widget extension, to insert static blocks, rendered templates, or specific content.",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">=2.3.0,<3.0.0"
+        "bolt/bolt": "^3.0"
     },
     "license": "MIT",
     "authors": [
@@ -13,11 +13,14 @@
         }
     ],
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
             "Bolt\\Extension\\Bolt\\BaseWidget\\": ""
+        }
+    },
+    "extra": {
+        "bolt-class": "Bolt\\Extension\\Bolt\\BaseWidget\\BaseWidgetExtension",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     }
 }
