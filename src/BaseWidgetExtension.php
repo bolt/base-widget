@@ -5,7 +5,7 @@ namespace Bolt\Extension\Bolt\BaseWidget;
 use Bolt\Application;
 use Bolt\BaseExtension;
 
-class Extension extends BaseExtension
+class BaseWidgetExtension extends BaseExtension
 {
 
     public function initialize()
