@@ -2,7 +2,7 @@
 
 <p>
     {% if record is not empty %}
-        {{ record|excerpt(160) }}
+        {{ record.text ? record.text|raw : record|excerpt(160) }}
     {% else %}
         <b>No content was found.</b> Make sure the record you're using exists,
         <em>and</em> it's status is set to <tt>'published'</tt>.
