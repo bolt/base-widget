@@ -1,8 +1,10 @@
 <h4>{{ record.title|default('No title…') }}</h4>
 
 <p>
-    {% if record is not empty %}
-        {{ record.text ? record.text|raw : record|excerpt(160) }}
+    {% if record.text is defined and record.text is not empty %}
+        {{ record.text|raw }}
+    {% elseif record is not empty %}
+        {{ record|excerpt(160) }}
     {% else %}
         <b>No content was found.</b> Make sure the record you're using exists,
         <em>and</em> it's status is set to <tt>'published'</tt>.
