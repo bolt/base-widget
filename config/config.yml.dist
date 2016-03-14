@@ -26,7 +26,7 @@ available:
         template: widgets/contentblock.twig
         content:
             title: This is a sample widget
-            excerpt: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
+            text: "Edit <tt>config/extensions/basewidget.bolt.yml</tt> to change the widgets."
 
     # A widget that retrieves a record, and shows a block using that record
     block2:

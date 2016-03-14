@@ -1,6 +1,6 @@
 {
     "name": "bolt/basewidget",
-    "description": "A basic widget extension, to insert static blocks, rendered templates, or specific content.",
+    "description": "A basic widget extension to insert static blocks, rendered templates or specific content.",
     "type": "bolt-extension",
     "require": {
         "bolt/bolt": "^3.0"
@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Bolt\\Extension\\Bolt\\BaseWidget\\": ""
+            "Bolt\\Extension\\Bolt\\BaseWidget\\": "src"
         }
     },
     "extra": {

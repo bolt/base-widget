@@ -10,7 +10,7 @@ that are slowing down the performance. By adding these as a 'cached' or
 'deferred' widget, the page will no longer slow down while waiting for all of
 the content to render.
 
-Some of the features of this extension are: 
+Some of the features of this extension are:
 
  - Adding a widget with static, predefined content
  - Adding widgets that retrieve a specific record
@@ -29,7 +29,7 @@ Options:
 
  - `location`: The location determines where the widget will be inserted in the
    template. For the backend there are a number of pre-defined positions, but
-   for the frontend this depends on where the theme's author has provided 
+   for the frontend this depends on where the theme's author has provided
    `{{ widget() }}` areas.
  - `type`: Use this to specify a widget for 'backend'. If you omit this option,
    it'll be inserted in the 'frontend' by default.
@@ -44,7 +44,7 @@ Options:
    widgets' below.
  - `enabled`: Use this option to (temporarily) disable a widget. If set to
    `enabled: false`, the widget will not be shown anywhere.
- 
+
 
 Overriding the templates
 ------------------------
@@ -53,16 +53,17 @@ content or backend widgets. Especially if you are using this extension to add
 blocks to your frontend pages, chances are that you will want to modify the way
 it looks.
 
-In one of the stock examples, you'll see: 
+In one of the stock examples, you'll see:
 
 ```
 template: widgets/contentblock.twig
 ```
 
-This uses the template at`extensions/vendor/bolt/basewidget/widgets/contentblock.twig`. 
-If you wish to use your own template, simply create a folder `widgets` in your
-current theme directory, and copy the file `contentblock.twig` to it. Bolt will
-automatically pick up the one from your own theme, if you've overridden it.
+This uses the template at`basewidget/widgets/templates/contentblock.twig`, in
+the `extensions/vendor/bolt` folder. If you wish to use your own template,
+simply create a folder `widgets` in your current theme directory, and copy the
+file `contentblock.twig` to it. Bolt will automatically pick up the one from
+your own theme, if you've overridden it.
 
 Obviously you can also give a widget another template to render, but it is good
 practice to keep these organized in a `widgets/` folder inside your theme.
@@ -73,11 +74,11 @@ Backend widgets
 Using this extension, you'll be able to easily add two types of widgets to the
 Bolt backend:
 
- - Panel widgets, for the sidebars on 'Dashboard', 'Overview listing', and 'Edit
-   content' pages.
+ - Panel widgets, for the sidebars on 'Dashboard', 'Overview listing', and
+   'Edit content' pages.
  - Button widgets, for almost all pages.
 
-To add a button to the Dashboard, use the following: 
+To add a button to the Dashboard, use the following:
 
 ```
     block6:
@@ -92,15 +93,15 @@ To add a button to the Dashboard, use the following:
                     path: about
 ```
 
-This is the result: 
+This is the result:
 
 ![screenshot 1][img1]
 
 
 The `location` is one of the pre-defined locations in Bolt's backend where you
 can add widgets. The `content` has a field `buttons`, that defines one or more
-buttons. In the above example, only one button is added, that's labeled 'About'.
-To determine the functionality of the buttons, there are four options:
+buttons. In the above example, only one button is added, that's labeled
+'About'. To determine the functionality of the buttons, there are four options:
 
  - `type`: Specify the type of button. Accepted values are `primary`,
    `secondary`, `tertiary` and `default`. When adding multiple buttons, you
@@ -119,7 +120,7 @@ To determine the functionality of the buttons, there are four options:
    tab/window in the browser.
 
 
-To add a panel widget to the backend, use the following structure: 
+To add a panel widget to the backend, use the following structure:
 
 ```
     block5:
@@ -127,22 +128,22 @@ To add a panel widget to the backend, use the following structure:
         location: dashboard_aside_top
         template: widgets/backend_panel.twig
         content:
-            icon: camera-retro 
+            icon: camera-retro
             title: An example of a Dashboard widget
             description: "Lorem ipsum dolor sit amet … …"
             buttons:
                 About:
                     type: primary
                     icon: heart
-                    path: about 
+                    path: about
                 Documentation:
                     type: default
                     icon: leanpub
-                    link: 'https://docs.bolt.cm' 
+                    link: 'https://docs.bolt.cm'
                     target: '_blank'
 ```
 
-The result will look like this: 
+The result will look like this:
 
 ![screenshot 2][img2]
 
