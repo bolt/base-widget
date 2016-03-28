@@ -90,3 +90,10 @@ available:
         location: aside_bottom
         static: "<p>Basic, <em>fixed</em> text for a widget</p>"
         enabled: true
+
+    # Create a widget that has contextual variables, like `record` and `context`. Using
+    # `withcontext` disables "caching" and "deferred", so use with care.
+    contextual:
+        location: main_top
+        template: widgets/contextual.twig
+        withcontext: true
