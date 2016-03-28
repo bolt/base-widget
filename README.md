@@ -44,7 +44,21 @@ Options:
    widgets' below.
  - `enabled`: Use this option to (temporarily) disable a widget. If set to
    `enabled: false`, the widget will not be shown anywhere.
-
+ - `defer`: Insert this widget using 'ajaxy loading'. The page is rendered with
+   an empty placeholder for the widget, which is then rendered in a separate
+   request, and inserted in the page.
+ - `cacheduration`: The amount (in seconds) that the entire widget is cached on
+   the server. This can significantly speed up the rendering of pages, but be
+   aware that _cached_ widgets can not show tailored content. The widget will
+   show the same on every page, for all visitors.
+ - `withcontext`: By design, widgets are "without context", because in normal
+   use, the contents of a widget should _not_ depend on the page it's rendered
+   on. Sometimes, however, you might really need this context. Setting
+   `withcontext: true` will make sure your widget knows about all defined Twig
+   variables that were available in the surrounding page, like
+   `{{ dump(record) }}` in the front- or `{{ dump(context) }}` in the backend.
+   Note that if you use this option, `cacheduration` and `defer` will both be
+   disabled for this specific widget, so use with care and thought.
 
 Overriding the templates
 ------------------------
