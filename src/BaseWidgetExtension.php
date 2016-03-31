@@ -45,7 +45,7 @@ class BaseWidgetExtension extends SimpleExtension
                 $widgetObj->setCacheDuration(-1);
             }
 
-            if (!empty($widget['withcontext']) && $widget['withcontext'] == true) {
+            if (!empty($widget['withcontext']) && $widget['withcontext'] === true) {
                 $widgetObj->setCacheDuration(-1);
                 $widgetObj->setDefer(false);
             }
@@ -86,7 +86,7 @@ class BaseWidgetExtension extends SimpleExtension
             'content' => $widget['content'],
         ];
 
-        if (!empty($widget['withcontext']) && $widget['withcontext'] == true) {
+        if (!empty($widget['withcontext']) && $widget['withcontext'] === true) {
             $data = array_merge($data, $app['twig']->getGlobals());
         }
 
