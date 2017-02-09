@@ -167,7 +167,7 @@ as before. This widget has some additional fields, like `icon`, `title` and
 
 
 [1]: https://docs.bolt.cm/widgets
-[2]: https://github.com/bolt/base-widget/blob/master/config.yml.dist
+[2]: https://github.com/bolt/base-widget/blob/master/config/config.yml.dist
 [fa]: http://fontawesome.io/icons/
 [img2]: https://cloud.githubusercontent.com/assets/1833361/10868858/3e93eca6-809c-11e5-8212-179f909cf94d.png
 [img1]: https://cloud.githubusercontent.com/assets/1833361/10868978/e0f4bfd6-809f-11e5-9119-c2bf6a4e7d47.png
