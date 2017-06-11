@@ -50,6 +50,10 @@ class BaseWidgetExtension extends SimpleExtension
                 $widgetObj->setDefer(false);
             }
 
+            if (!empty($widget['priority'])) {
+                $widgetObj->setPriority($widget['priority']);
+            }
+
             $widgets[] = $widgetObj;
         }
 

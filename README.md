@@ -39,7 +39,7 @@ Options:
    section 'Overriding the templates' below.
  - `content`: The content defines the static content for the widget and is
    normally defined as an array. This will be passed into the widget as-is, and
-   will be accessible in the widget's teplate as `{{ content }}`. For backend
+   will be accessible in the widget's template as `{{ content }}`. For backend
    widgets, there's a pre-defined format for this. See the section 'backend
    widgets' below.
  - `enabled`: Use this option to (temporarily) disable a widget. If set to
@@ -59,6 +59,8 @@ Options:
    `{{ dump(record) }}` in the front- or `{{ dump(context) }}` in the backend.
    Note that if you use this option, `cacheduration` and `defer` will both be
    disabled for this specific widget, so use with care and thought.
+ - `priority`: Use this to specify the order in which widgets are displayed.
+   Lower priorities are displayed first.
 
 Overriding the templates
 ------------------------
@@ -122,7 +124,7 @@ buttons. In the above example, only one button is added, that's labeled
    should take care not to make the interface too cluttered by having too many
    "primary" button. Ideally, you'd add one "primary" button at most, and any
    others should bet either "tertiary" or "default".
- - `icon`: This can be any [Font Awesome][fa] icon. If omited, the button will
+ - `icon`: This can be any [Font Awesome][fa] icon. If omitted, the button will
    have no icon.
  - `path`: Specify a named path, as defined by `->bind('…')` in the controller.
    This will mostly be useful if you have created an extension, and would like
