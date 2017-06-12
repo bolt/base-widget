@@ -11,6 +11,7 @@ available:
         location: aside_top
         template: widgets/searchbox.twig
         cacheduration: 0
+        priority: 1
 
     # Add the latest records from one or more contenttypes as a sidebar widget.
     latest:
