@@ -60,7 +60,7 @@ Options:
    Note that if you use this option, `cacheduration` and `defer` will both be
    disabled for this specific widget, so use with care and thought.
  - `priority`: Use this to specify the order in which widgets are displayed.
-   Lower priorities are displayed first.
+   Higher priorities are displayed first.
 
 Overriding the templates
 ------------------------
