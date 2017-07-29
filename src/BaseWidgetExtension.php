@@ -4,7 +4,6 @@ namespace Bolt\Extension\Bolt\BaseWidget;
 
 use Bolt\Asset\Widget\Widget;
 use Bolt\Extension\SimpleExtension;
-use Bolt\Twig\FilesystemLoader;
 
 class BaseWidgetExtension extends SimpleExtension
 {
@@ -103,8 +102,8 @@ class BaseWidgetExtension extends SimpleExtension
             // Render the template, and return the results
             return $this->renderTemplate($widget['template'], $data);
         } catch (\Twig_Error_Loader $e) {
-            return "<strong>Base Widget error:</strong> Widget template '<tt>" . $widget['template'] .
-            "</tt>' does not exist, or isn't readable.";
+            return "<strong>Base Widget error:</strong> Widget template '<code>" . $widget['template'] .
+            "</code>' does not exist, or isn't readable.";
         }
     }
 }

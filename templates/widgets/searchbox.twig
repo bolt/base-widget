@@ -14,7 +14,7 @@
 }
 </style>
 <h3 class='widget-title'>{{ __('Search') }}</h3>
-<form method="get" action="{{ paths.root }}search" class="search-widget-form" enctype="text/plain">
+<form method="get" action="{{ path('search') }}" class="search-widget-form" enctype="text/plain">
     <div class="search-widget-column" style='width: 66%;'>
         <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" name="search" class="search-widget-input">
     </div>
