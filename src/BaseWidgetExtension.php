@@ -4,7 +4,6 @@ namespace Bolt\Extension\Bolt\BaseWidget;
 
 use Bolt\Asset\Widget\Widget;
 use Bolt\Extension\SimpleExtension;
-use Bolt\Twig\FilesystemLoader;
 
 class BaseWidgetExtension extends SimpleExtension
 {
