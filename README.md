@@ -31,7 +31,7 @@ Options:
    template. For the backend there are a number of pre-defined positions, but
    for the frontend this depends on where the theme's author has provided
    `{{ widget() }}` areas.
- - `type`: Use this to specify a widget for 'backend'. If you omit this option,
+ - `zone`: Use this to specify a widget for 'backend'. If you omit this option,
    it'll be inserted in the 'frontend' by default.
  - `record`: Specify If the `content` option is also used, it will be used as a
    fallback for the values of `{{ record }} `
